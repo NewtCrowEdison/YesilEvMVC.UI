@@ -1,0 +1,75 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Admin Paneli";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center text-success mb-4"><i class="bi bi-person-circle me-2"></i>Admin Paneli</h2>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card border-success h-100">
+                <div class="card-header bg-success text-white text-center">
+                    <h5 class="mb-0">👤 ADMIN</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="card border-success h-100">
+                <div class="card-header bg-light text-success fw-bold">
+                    <i class="bi bi-gear-fill me-2"></i>Yönetim Ayarları
+                </div>
+                <div class="list-group list-group-flush">
+                    <a href="/Urun/Ekle" class="list-group-item list-group-item-action">
+                        <i class="bi bi-box-fill text-success me-2"></i>Ürün Ekle
+                    </a>
+                    <a href="/Admin/KategoriEkle" class="list-group-item list-group-item-action">
+                        <i class="bi bi-tags-fill text-success me-2"></i>Kategori Ekle
+                    </a>
+                    <a href="/Admin/UreticiEkle" class="list-group-item list-group-item-action">
+                        <i class="bi bi-house-door-fill text-success me-2"></i>Üretici Ekle
+                    </a>
+                    <a href="/Admin/AktiviteEkle" class="list-group-item list-group-item-action">
+                        <i class="bi bi-plus-circle-fill text-success me-2"></i>Aktivite Ekle
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card border-success h-100">
+                <div class="card-header bg-light text-success fw-bold">
+                    <i class="bi bi-file-earmark-text-fill me-2"></i>Admin İşlemleri
+                </div>
+                <div class="list-group list-group-flush">
+                    <a href="/Urun/Index" class="list-group-item list-group-item-action">
+                        <i class="bi bi-boxes text-success me-2"></i>Ürün Listele
+                    </a>
+                    <a href="/Admin/KategoriListe" class="list-group-item list-group-item-action">
+                        <i class="bi bi-tags text-success me-2"></i>Kategori Listele
+                    </a>
+                    <a href="/Admin/UreticiListe" class="list-group-item list-group-item-action">
+                        <i class="bi bi-house-door text-success me-2"></i>Üretici Listele
+                    </a>
+                    <a href="/Admin/AktiviteListe" class="list-group-item list-group-item-action">
+                        <i class="bi bi-list-ol text-success me-2"></i>Aktivite Listele
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card border-danger h-100">
+                <div class="card-header bg-light text-danger fw-bold">
+                    <i class="bi bi-door-closed-fill me-2"></i>Oturum
+                </div>
+                <div class="card-body text-center">
+                    <a href="/Admin/Logout" class="btn btn-outline-danger w-100">
+                        <i class="bi bi-box-arrow-right me-1"></i>Çıkış Yap
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

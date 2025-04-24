@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Premium Üyelik";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-success">Premium Üyelik</h2>
+
+@if (User.IsInRole("Premium"))
+{
+    <div class="alert alert-success">
+        <strong>Zaten Premium üyesiniz! 🎉</strong> Tüm ayrıcalıklardan faydalanabilirsiniz.
+    </div>
+}
+else
+{
+    <p>Premium üyelik ile şunlara sahip olabilirsiniz:</p>
+    <ul>
+        <li>Reklamsız kullanım</li>
+        <li>Sınırsız ürün & içerik erişimi</li>
+        <li>Daha detaylı ürün analizleri</li>
+        <li>Kara liste ve favorilere sınırsız kayıt</li>
+    </ul>
+
+    <a href="/Uye/PremiumOl" class="btn btn-success">Premium Üye Ol</a>
+}

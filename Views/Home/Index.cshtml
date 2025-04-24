@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Ana Sayfa";
+    Layout = "_Layout";
+}
+
+<div class="text-center">
+    <h1 class="display-4 text-success">YeşilEv'e Hoşgeldiniz 🌿</h1>
+    <p class="lead">YeşilEv, sağlığınızı ve güvenliğinizi ön planda tutarak, içeriklerini bilmediğiniz ürünleri analiz etmenizi sağlar. Sağlıklı, güvenli ve bilinçli alışverişin adresi!</p>
+    <p>Ürün içeriklerini keşfedin, riskleri analiz edin ve favori ürünlerinize kolayca ulaşın.</p>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p class="mt-3">Hoş geldiniz, <strong>@User.Identity.Name</strong>! Sağlıklı alışverişler yapmaya devam edin.</p>
+    }
+    else
+    {
+        <div class="mt-3">
+            <p>YeşilEv'e daha fazla özellikten faydalanmak için giriş yapın ya da kaydolun.</p>
+        </div>
+    }
+
+    <form class="d-flex justify-content-center my-4" method="get" action="/Urun/Arama">
+        <input name="query" type="text" class="form-control w-50" placeholder="Ürün adı ya da barkod girin..." />
+        <button class="btn btn-success ms-2" type="submit">Ara</button>
+    </form>
+
+    <div class="row mt-5">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 p-3">
+                <h5 class="text-success">İçeriklere Dikkat!</h5>
+                <p>Ürün içeriklerinin cilt sağlığı ve genel sağlık açısından risklerini öğrenin. Güvenli alışveriş için içerikleri analiz edin.</p>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a href="/Urun/IcerikListesi" class="btn btn-outline-success">İçerik Analizi</a>
+                }
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 p-3 d-flex flex-column justify-content-between">
+                <div>
+                    <h5 class="text-success">Favori Ürünler</h5>
+                    <p>Sevdiğiniz ürünleri favorilere ekleyin, kolayca tekrar erişin ve sağlıklı seçimler yapın.</p>
+                </div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a href="@Url.Action("Favoriler", "Urun")" class="btn btn-outline-success mt-auto">Favorilere Git</a>
+                }
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 p-3 d-flex flex-column justify-content-between">
+                <div>
+                    <h5 class="text-success">Kara Liste</h5>
+                    <p>Sağlık açısından riskli maddeleri içeren ürünleri kolayca eleyin ve güvenli alışveriş yapın.</p>
+                </div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a href="@Url.Action("KaraListe", "Urun")" class="btn btn-outline-success mt-auto">Kara Listeye Git</a>
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+﻿@model YesilEvMVC.UI.ViewModels.AktiviteViewModel
+@{
+    ViewBag.Title = "Aktivite Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <h2 class="text-success text-center mb-4">📝 Yeni Aktivite Ekle</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="post" asp-action="AktiviteEkle" class="border p-4 rounded shadow-sm bg-light">
+                <div class="mb-3">
+                    <label asp-for="AktiviteAdi" class="form-label">Aktivite Adı</label>
+                    <input asp-for="AktiviteAdi" class="form-control" />
+                    <span asp-validation-for="AktiviteAdi" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="AktivitePuani" class="form-label">Aktivite Puanı</label>
+                    <input asp-for="AktivitePuani" class="form-control" type="number" />
+                    <span asp-validation-for="AktivitePuani" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="AktiviteZamani" class="form-label">Aktivite Zamanı</label>
+                    <input asp-for="AktiviteZamani" class="form-control" type="datetime-local" />
+                    <span asp-validation-for="AktiviteZamani" class="text-danger"></span>
+                </div>
+
+                <div class="text-end">
+                    <button type="submit" class="btn btn-success">
+                        <i class="bi bi-plus-circle me-1"></i> Ekle
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

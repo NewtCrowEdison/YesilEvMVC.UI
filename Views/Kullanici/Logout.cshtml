@@ -1,0 +1,10 @@
+﻿@if (User.Identity.IsAuthenticated)
+{
+    <a class="nav-link" href="/Kullanici/Profile">👤 @User.Identity.Name</a>
+    <a class="nav-link text-danger" href="/Kullanici/Logout">Çıkış</a>
+}
+else
+{
+    <a class="nav-link" href="/Identity/Account/Login">Giriş</a>
+    <a class="nav-link" href="/Identity/Account/Register">Kayıt Ol</a>
+}

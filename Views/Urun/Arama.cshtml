@@ -1,0 +1,32 @@
+﻿@model IEnumerable<YesilEvMVC.UI.Models.Urun>
+<h2 class="text-success">Ürün Arama</h2>
+<form asp-action="Arama" method="get" class="input-group mb-3">
+    <input type="text" name="query" class="form-control" placeholder="Ürün adı ya da barkod..." />
+    <button class="btn btn-success">Ara</button>
+</form>
+@if (!Model.Any())
+{
+    <div class="alert alert-info">Sonuç bulunamadı.</div>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead class="table-success">
+            <tr>
+                <th>Adı</th>
+                <th>Barkod</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.UrunAdi</td>
+                    <td>@item.BarkodNo</td>
+                    <td><a href="/Urun/Detay/@item.Id" class="btn btn-success btn-sm">Detay</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

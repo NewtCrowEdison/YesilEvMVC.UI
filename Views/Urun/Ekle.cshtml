@@ -1,0 +1,29 @@
+﻿@model YesilEvMVC.UI.Models.Urun
+<h2 class="text-success">Yeni Ürün Ekle</h2>
+<form asp-action="Ekle" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label class="form-label">Ürün Adı</label>
+        <input asp-for="UrunAdi" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Barkod No</label>
+        <input asp-for="BarkodNo" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Önyüz Görseli</label>
+        <input asp-for="OnYuzResmi" class="form-control" type="file" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Arkayüz Görseli</label>
+        <input asp-for="ArkaYuzResmi" class="form-control" type="file" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Kategori</label>
+        <select asp-for="KategoriId" class="form-select" asp-items="@(new SelectList(ViewBag.Kategoriler, "Id", "KategoriAdi"))"></select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Üretici</label>
+        <select asp-for="UreticiId" class="form-select" asp-items="@(new SelectList(ViewBag.Ureticiler, "Id", "UreticiAdi"))"></select>
+    </div>
+    <button type="submit" class="btn btn-success">Kaydet</button>
+</form>

@@ -1,0 +1,41 @@
+﻿@model YesilEvMVC.UI.ViewModels.AktiviteViewModel
+@{
+    ViewBag.Title = "Aktivite Düzenle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <h2 class="text-warning text-center mb-4">✏️ Aktivite Düzenle</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="post" asp-action="AktiviteDuzenle" class="border p-4 rounded shadow-sm bg-light">
+                <input type="hidden" asp-for="Id" />
+
+                <div class="mb-3">
+                    <label asp-for="AktiviteAdi" class="form-label">Aktivite Adı</label>
+                    <input asp-for="AktiviteAdi" class="form-control" />
+                    <span asp-validation-for="AktiviteAdi" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="AktivitePuani" class="form-label">Aktivite Puanı</label>
+                    <input asp-for="AktivitePuani" class="form-control" type="number" />
+                    <span asp-validation-for="AktivitePuani" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="AktiviteZamani" class="form-label">Aktivite Zamanı</label>
+                    <input asp-for="AktiviteZamani" class="form-control" type="datetime-local" />
+                    <span asp-validation-for="AktiviteZamani" class="text-danger"></span>
+                </div>
+
+                <div class="text-end">
+                    <button type="submit" class="btn btn-warning">
+                        <i class="bi bi-pencil-square me-1"></i> Güncelle
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

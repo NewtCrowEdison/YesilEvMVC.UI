@@ -1,0 +1,58 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<YesilEvMVC.UI.Models.Urun>
+@{
+    ViewData["Title"] = "Tüm Ürünler";
+}
+<h2 class="text-success">@ViewData["Title"]</h2>
+
+<a href="/Urun/Ekle" class="btn btn-outline-success mb-3">Yeni Ürün Ekle</a>
+
+<table class="table table-hover mb-5">
+    <thead class="table-success">
+        <tr>
+            <th>Görsel</th>
+            <th>Adı</th>
+            <th>Barkod</th>
+            <th>Kategori</th>
+            <th>Üretici</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.OnYuzResmiYolu))
+                    {
+                        <img src="@item.OnYuzResmiYolu" alt="Ürün Görseli" width="60" height="60" style="object-fit: cover; border-radius: 8px;" />
+                    }
+                    else
+                    {
+                        <span class="text-muted">Yok</span>
+                    }
+                </td>
+                <td>@item.UrunAdi</td>
+                <td>@item.BarkodNo</td>
+                <td>@item.Kategori.KategoriAdi</td>
+                <td>@item.Uretici.UreticiAdi</td>
+                <td>
+                    <a href="/Urun/Detay/@item.Id" class="btn btn-success btn-sm">Detay</a>
+                    <a href="/Urun/Duzenle/@item.Id" class="btn btn-warning btn-sm">Düzenle</a>
+                    @if ((bool)ViewBag.IsAdmin)
+                    {
+                        <form method="post" asp-action="Sil" asp-route-id="@item.Id"
+                              onsubmit="return confirm('Bu ürünü silmek istediğinize emin misiniz?');"
+                              style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <button class="btn btn-danger btn-sm" onclick="window.location.href='/Hata/ErisimYok'">Sil</button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

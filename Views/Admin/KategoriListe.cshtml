@@ -1,0 +1,43 @@
+﻿@model List<YesilEvMVC.UI.ViewModels.KategoriViewModel>
+@{
+    ViewBag.Title = "Kategori Listesi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <h2 class="text-success text-center mb-4">📂 Kategori Listesi</h2>
+
+    <div class="mb-3 text-end">
+        <a class="btn btn-success" href="/Admin/KategoriEkle">
+            <i class="bi bi-plus-circle me-1"></i>Yeni Kategori Ekle
+        </a>
+    </div>
+
+    <table class="table table-bordered table-hover align-middle">
+        <thead class="table-success text-center">
+            <tr>
+                <th>ID</th>
+                <th>Kategori Adı</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var kategori in Model)
+            {
+                <tr>
+                    <td class="text-center">@kategori.Id</td>
+                    <td>@kategori.KategoriAdi</td>
+                    <td class="text-center">
+                        <a class="btn btn-sm btn-warning me-1" href="/Admin/KategoriDuzenle/@kategori.Id">
+                            <i class="bi bi-pencil-square"></i> Düzenle
+                        </a>
+                        <a class="btn btn-sm btn-danger" href="/Admin/KategoriSil/@kategori.Id"
+                           onclick="return confirm('Bu kategoriyi silmek istediğinize emin misiniz?');">
+                            <i class="bi bi-trash3-fill"></i> Sil
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

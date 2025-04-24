@@ -1,0 +1,45 @@
+﻿@model YesilEvMVC.UI.Models.Urun
+
+<h2 class="text-success">@Model.UrunAdi Detayları</h2>
+
+<ul class="list-group mb-3">
+    <li class="list-group-item">Kategori: @Model.Kategori.KategoriAdi</li>
+    <li class="list-group-item">Üretici: @Model.Uretici.UreticiAdi</li>
+    <li class="list-group-item">Barkod: @Model.BarkodNo</li>
+
+    <li class="list-group-item">
+        <strong>İçerikler:</strong>
+        @if (Model.UrunIcerik != null && Model.UrunIcerik.Any())
+        {
+            <ul>
+                @foreach (var icerik in Model.UrunIcerik)
+                {
+                    <li>
+                        <strong>@icerik.IcerikAdi</strong><br />
+                        <em>@icerik.Aciklama</em>
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>İçerik bulunamadı.</p>
+        }
+    </li>
+
+    @if (!string.IsNullOrEmpty(Model.OnYuzResmiYolu))
+    {
+        <li class="list-group-item">
+            <img src="@Model.OnYuzResmiYolu" alt="Önyüz Resim" width="150" />
+        </li>
+    }
+
+    @if (!string.IsNullOrEmpty(Model.ArkaYuzResmiYolu))
+    {
+        <li class="list-group-item">
+            <img src="@Model.ArkaYuzResmiYolu" alt="Arkayüz Resim" width="150" />
+        </li>
+    }
+</ul>
+
+<a href="/Urun" class="btn btn-outline-success">Geri Dön</a>

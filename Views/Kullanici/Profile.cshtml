@@ -1,0 +1,73 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Kullanıcı Paneli";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center text-success mb-4"><i class="bi bi-person-circle me-2"></i>Kullanıcı Paneli</h2>
+
+    <div class="row g-4">
+        <!-- Kullanıcı Bilgileri -->
+        <div class="col-md-4">
+            <div class="card border-success h-100">
+                <div class="card-header bg-success text-white text-center">
+                    <h5 class="mb-0">👤 USER</h5>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hesap Ayarları -->
+        <div class="col-md-8">
+            <div class="card border-success h-100">
+                <div class="card-header bg-light text-success fw-bold">
+                    <i class="bi bi-gear-fill me-2"></i>Hesap Ayarları
+                </div>
+                <div class="list-group list-group-flush">
+                    <a href="/Kullanici/PremiumUyeOl" class="list-group-item list-group-item-action">
+                        <i class="bi bi-star-fill text-success me-2"></i>Premium üye ol
+                    </a>
+                    <a href="/Kullanici/EPostaDegistir" class="list-group-item list-group-item-action">
+                        <i class="bi bi-envelope-at-fill text-success me-2"></i>E-Posta adresini değiştir
+                    </a>
+                    <a href="/Kullanici/SifreDegistir" class="list-group-item list-group-item-action">
+                        <i class="bi bi-key-fill text-success me-2"></i>Şifre değiştir
+                    </a>
+                    <a href="/Kullanici/ProfilGuncelle" class="list-group-item list-group-item-action">
+                        <i class="bi bi-pencil-fill text-success me-2"></i>Profil bilgilerini güncelle
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Listeleme Alanları -->
+        <div class="col-md-6">
+            <div class="card border-success h-100">
+                <div class="card-header bg-light text-success fw-bold">
+                    <i class="bi bi-heart-fill me-2"></i>Favoriler ve Listeleme
+                </div>
+                <div class="list-group list-group-flush">
+                    <a href="/Kullanici/Favoriler" class="list-group-item list-group-item-action">
+                        <i class="bi bi-heart-fill text-success me-2"></i>Favoriler
+                    </a>
+                    <a href="/Kullanici/KaraListe" class="list-group-item list-group-item-action">
+                        <i class="bi bi-x-circle-fill text-success me-2"></i>Kara liste
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Oturum -->
+        <div class="col-md-6">
+            <div class="card border-danger h-100">
+                <div class="card-header bg-light text-danger fw-bold">
+                    <i class="bi bi-door-closed-fill me-2"></i>Oturum
+                </div>
+                <div class="card-body text-center">
+                    <a href="/Kullanici/Logout" class="btn btn-outline-danger w-100">
+                        <i class="bi bi-box-arrow-right me-1"></i>Çıkış Yap
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

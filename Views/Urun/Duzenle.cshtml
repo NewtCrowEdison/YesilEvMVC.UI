@@ -1,0 +1,45 @@
+﻿@model YesilEvMVC.UI.ViewModels.UrunVM
+
+<h2 class="text-success">Ürünü Düzenle</h2>
+
+<form asp-action="Duzenle" asp-route-id="@Model.Id" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label class="form-label">Ürün Adı</label>
+        <input asp-for="UrunAdi" class="form-control" />
+        <span asp-validation-for="UrunAdi" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Barkod No</label>
+        <input asp-for="BarkodNo" class="form-control" />
+        <span asp-validation-for="BarkodNo" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Önyüz Görseli</label>
+        <input asp-for="OnYuzResmi" type="file" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Arkayüz Görseli</label>
+        <input asp-for="ArkaYuzResmi" type="file" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Kategori</label>
+        <select asp-for="KategoriId" class="form-select" asp-items="@(new SelectList(ViewBag.Kategoriler, "Id", "KategoriAdi"))"></select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Üretici</label>
+        <select asp-for="UreticiId" class="form-select" asp-items="@(new SelectList(ViewBag.Ureticiler, "Id", "UreticiAdi"))"></select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Güncelle</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

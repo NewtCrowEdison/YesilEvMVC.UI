@@ -1,0 +1,29 @@
+﻿@model List<YesilEvMVC.UI.Models.KullaniciFavori>
+@{
+    ViewBag.Title = "Favori Ürünler";
+    Layout = "_Layout";
+}
+
+<h2 class="text-success mb-4">Favori Ürünlerim</h2>
+
+@if (!Model.Any())
+{
+    <p class="text-muted">Henüz favorilere ürün eklemediniz.</p>
+}
+else
+{
+    <div class="row">
+        @foreach (var favori in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title text-success">@favori.Urun.UrunAdi</h5>
+                        <p class="card-text">Barkod: @favori.Urun.BarkodNo</p>
+                        <a href="/Urun/Detay/@favori.Urun.Id" class="btn btn-outline-success">Detay</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

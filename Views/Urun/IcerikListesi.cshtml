@@ -1,0 +1,49 @@
+﻿@model List<YesilEvMVC.UI.Models.UrunIcerik>
+@using Microsoft.AspNetCore.Identity
+
+@{
+    ViewBag.Title = "İçerik Listesi";
+    Layout = "_Layout";
+}
+
+<h2 class="text-success mb-4">Tüm İçerikler</h2>
+
+@if (!Model.Any())
+{
+    <p class="text-muted">Kayıtlı içerik bulunamadı.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead class="table-success">
+            <tr>
+                <th>#</th>
+                <th>İçerik Adı</th>
+                <th>Açıklama</th>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <th>İşlem</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>@(i + 1)</td>
+                    <td>@Model[i].IcerikAdi</td>
+                    <td>@Model[i].Aciklama</td>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <td>
+                            <form method="post" asp-action="KaraListeyeEkle">
+                                <input type="hidden" name="icerikId" value="@Model[i].Id" />
+                                <button type="submit" class="btn btn-outline-danger btn-sm">Alerjim Var</button>
+                            </form>
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}

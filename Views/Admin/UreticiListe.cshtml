@@ -1,0 +1,43 @@
+﻿@model List<YesilEvMVC.UI.ViewModels.UreticiViewModel>
+@{
+    ViewBag.Title = "Üretici Listesi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <h2 class="text-success text-center mb-4">🏭 Üretici Listesi</h2>
+
+    <div class="mb-3 text-end">
+        <a class="btn btn-success" href="/Admin/UreticiEkle">
+            <i class="bi bi-plus-circle me-1"></i>Yeni Üretici Ekle
+        </a>
+    </div>
+
+    <table class="table table-bordered table-hover align-middle">
+        <thead class="table-success text-center">
+            <tr>
+                <th>ID</th>
+                <th>Üretici Adı</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var uretici in Model)
+            {
+                <tr>
+                    <td class="text-center">@uretici.Id</td>
+                    <td>@uretici.UreticiAdi</td>
+                    <td class="text-center">
+                        <a class="btn btn-sm btn-warning me-1" href="/Admin/UreticiDuzenle/@uretici.Id">
+                            <i class="bi bi-pencil-square"></i> Düzenle
+                        </a>
+                        <a class="btn btn-sm btn-danger" href="/Admin/UreticiSil/@uretici.Id"
+                           onclick="return confirm('Bu üreticiyi silmek istediğinize emin misiniz?');">
+                            <i class="bi bi-trash3-fill"></i> Sil
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
