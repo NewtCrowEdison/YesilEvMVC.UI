@@ -36,7 +36,7 @@ namespace YesilEvMVC.UI.Middlewares
             // Normal üyelerin yasaklı yolları
             if (userRoles.Contains("Normal"))
             {
-                if (path.Contains("/karaliste") || path.Contains("/favori") || path.Contains("/urun/ekle"))
+                if (path.Contains("/karaliste") || path.Contains("/favori") || path.Contains("/urun/ekle") || path.Contains("/uretici") || path.Contains("/kategori") || path.Contains("/aktivite"))
                 {
                     context.Response.Redirect("/Hata/ErisimYok");
                     return;
@@ -46,7 +46,7 @@ namespace YesilEvMVC.UI.Middlewares
             // Premium üyelerin yasaklı yolları
             if (userRoles.Contains("Premium"))
             {
-                if (path.Contains("/kategori") || path.Contains("/uretici") || path.Contains("/icerik"))
+                if (path.Contains("/kategori") || path.Contains("/uretici") || path.Contains("/aktivite"))
                 {
                     context.Response.Redirect("/Hata/ErisimYok");
                     return;
