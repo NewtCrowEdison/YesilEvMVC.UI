@@ -43,7 +43,9 @@ Temel Özellikler
 🧑‍💻 Kullanıcı Rolleri
 
 User : Ürünleri ve içerikleri görüntüleyebilir
+
 Premium : Favorilere ve kara listeye ekleyebilir, ürün önerebilir
+
 Admin : Ürün, kategori, üretici ve içerik ekleyebilir; tüm sistemi yönetebilir
 
 🔐 Not: Kayıt ekranında kullanıcı rolü seçimlidir (geçici test amaçlıdır, ileride geliştirilecektir).
@@ -66,7 +68,9 @@ Uygulamayı başlatın ve tarayıcınızdan görüntüleyin.
 👥 Demo Kullanıcılar
 
 Admin	Kullanıcı Email : admin@yesilev.com	 Şifre : 123QWEasd.
+
 Premium	Kullanıcı Email :	premium@yesilev.com Şifre : 123QWEasd.
+
 User Kullanıcı Email : user@yesilev.com Şifre : 123QWEasd.
 
 ⚠️ Not: Premium ve User kullanıcılarının bazı fonksiyonları henüz tamamlanmamıştır.
