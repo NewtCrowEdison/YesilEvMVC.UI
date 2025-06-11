@@ -60,9 +60,9 @@ Uygulamayı başlatın ve tarayıcınızdan görüntüleyin.
 👤 Demo Kullanıcılar
 | Rol     | Email                                                       | Şifre      |
 | ------- | ----------------------------------------------------------- | ---------- |
-| Admin   | [admin@besinrehberi.com]                                    | 123QWEasd. |
-| Premium | [premium@besinrehberi.com]                                  | 123QWEasd. |
-| User    | [user@besinrehberi.com]                                     | 123QWEasd. |
+| Admin   | admin@besinrehberi.com                                      | 123QWEasd. |
+| Premium | premium@besinrehberi.com                                    | 123QWEasd. |
+| User    | user@besinrehberi.com                                       | 123QWEasd. |
 
 
 ⚠️ Not: Premium ve User rollerine ait bazı fonksiyonlar henüz tamamlanmamıştır.
